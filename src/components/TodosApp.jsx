@@ -1,14 +1,27 @@
 import React, { useState, useReducer } from "react";
+import Todo from "./Todo";
 
-const ACTIONS = {
+export const ACTIONS = {
   ADD_TASK: "add_todo",
+  TOGGLE_TASK: "toggle-task",
+  DELETE_TASK: "delete_task",
 };
 
 function reducer(todos, action) {
-  // eslint-disable-next-line default-case
   switch (action.type) {
     case ACTIONS.ADD_TASK:
       return [...todos, newTodo(action.payload.name)];
+    case ACTIONS.TOGGLE_TASK:
+      return todos.map((todo) => {
+        if (todo.id === action.payload.id) {
+          return { ...todo, complete: !todo.complete };
+        }
+        return todo;
+      });
+    case ACTIONS.DELETE_TASK:
+      return todos.filter((todo) => todo.id !== action.payload.id);
+    default:
+      return todos;
   }
 }
 
@@ -37,6 +50,9 @@ const TodosApp = () => {
           onChange={(e) => setName(e.target.value)}
         />
       </form>
+      {todos.map((todo) => {
+        return <Todo key={todo.id} todo={todo} dispatch={dispatch} />;
+      })}
     </>
   );
 };
