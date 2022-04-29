@@ -1,0 +1,14 @@
+{
+  "courses": [
+    {
+      "id": 1,
+      "title": "React JS, Basic Hooksaaa",
+      "author": "hgiudatto"
+    },
+    {
+      "id": 2,
+      "title": "JavaScript, Arraysaaaa",
+      "author": "hgiudatto"
+    }
+  ]
+}
