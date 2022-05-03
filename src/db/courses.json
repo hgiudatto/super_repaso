@@ -2,12 +2,32 @@
   "courses": [
     {
       "id": 1,
-      "title": "React JS, Basic Hooksaaa",
+      "title": "React JS, Basic Hooks",
       "author": "hgiudatto"
     },
     {
       "id": 2,
-      "title": "JavaScript, Arraysaaaa",
+      "title": "JavaScript, Arrays",
+      "author": "hgiudatto"
+    },
+    {
+      "id": 3,
+      "title": "React Js, PROPS... What really is?",
+      "author": "hgiudatto"
+    },
+    {
+      "id": 4,
+      "title": "Node => Async/await",
+      "author": "hgiudatto"
+    },
+    {
+      "id": 5,
+      "title": "JS Loops",
+      "author": "hgiudatto"
+    },
+    {
+      "id": 6,
+      "title": "React Fundamentals: JSX",
       "author": "hgiudatto"
     }
   ]
