@@ -3,6 +3,10 @@ import axios from "axios";
 import { nanoid } from "nanoid";
 import AddCourse from "./AddCourse";
 import Emoji from "./Emoji";
+import Content from "./Content";
+import Header from "./Header";
+import Footer from "./Footer";
+import styles from "./CoursesCRUDApp.module.css";
 
 const baseURL = "http://localhost:3000/courses";
 const api = axios.create({ baseURL: `http://localhost:3000/courses` });
@@ -86,12 +90,12 @@ const CoursesCRUDApp = () => {
     setCourses(listCourses); */
 
     try {
-      throw new Error("This is a crud operation error!");
-      /* const respAdd = await axios.post(baseURL, myNewCourse);
+      // throw new Error("This is a crud operation error!");
+      const respAdd = await axios.post(baseURL, myNewCourse);
       console.log("Add Post STATUS: ", respAdd.status);
       if (respAdd.status === 201) {
         setCreated(true);
-      } */
+      }
     } catch (err) {
       setCrudError(true);
       console.error(err.name);
@@ -148,21 +152,40 @@ const CoursesCRUDApp = () => {
     titleRef.current.focus();
   }
 
+  const handleCheck = (id) => {
+    const listCourses = courses.map((course) =>
+      course.id === id ? { ...course, checked: !course.checked } : course
+    );
+  };
+
   return (
-    <div className="container">
+    <div className={styles.container}>
       <h1>Courses</h1>
       <br></br>
-      <AddCourse
-        newCourse={newCourse}
-        setNewCourse={setNewCourse}
-        handleSubmit={handleSubmit}
-      />
-      {created ? (
-        <Emoji symbol="😀" label="created" />
-      ) : (
-        <Emoji symbol="😑" label="created" />
-      )}
-      
+      <div className={styles.body}>
+        <Header title="Courses List" />
+        <AddCourse
+          newCourse={newCourse}
+          setNewCourse={setNewCourse}
+          handleSubmit={handleSubmit}
+        />
+
+        {created ? (
+          <Emoji symbol="😀" label="created" />
+        ) : (
+          <Emoji symbol="😑" label="nothing happened" />
+        )}
+
+        {crudError ? (
+          <Emoji symbol="😟" label="not created" />
+        ) : (
+          <Emoji symbol="" label="crenothing happenedted" />
+        )}
+
+        <Content courses={courses} />
+        <Footer />
+      </div>
+
       <br></br>
       <br></br>
       <br></br>

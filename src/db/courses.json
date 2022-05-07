@@ -29,6 +29,16 @@
       "id": 6,
       "title": "React Fundamentals: JSX",
       "author": "hgiudatto"
+    },
+    {
+      "id": 7,
+      "title": "Javascript Error Handling | Handle Errors in Javascript | Try Catch Finally",
+      "author": "hgiudatto"
+    },
+    {
+      "id": 8,
+      "title": "Server-side Development with NodeJS, Express and MongoDB",
+      "author": "hgiudatto"
     }
   ]
 }
