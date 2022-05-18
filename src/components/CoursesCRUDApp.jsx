@@ -104,7 +104,7 @@ const CoursesCRUDApp = () => {
       if (err.response) {
         console.log(`Error: ${err.data}`);
         console.log(`Error: ${err.status}`);
-        console.log(`Error: ${err.headera}`);
+        console.log(`Error: ${err.headers}`);
       } else {
         console.log(`Error: ${err.message}`);
       }
